@@ -4,7 +4,7 @@
 This software lets the user design a route for deliveries with drones, it also makes reports of the trace and 
 position of the addresses traveled by each one.   
 
-##Design 
+## Design 
 This system involves different actors and entities. 
 1. **Owner:** is the main user, designs and organises the routes of the deliveries. 
 2. **Drone:** the worker, is the one that execute deliveries.
@@ -12,7 +12,7 @@ This system involves different actors and entities.
 4. **Route:** a defined path to arrive to an address. 
 5. **Delivery:** it joins a group of orders and orchestrate the process.
 
-##Use cases
+## Use cases
 - [ ] Drone doing an order route.
 - [ ] Drone doing a complete delivery. 
 - [ ] System generating all reports.
@@ -20,10 +20,10 @@ This system involves different actors and entities.
 - [ ] Implementing Control of deliveries out of boundaries. 
 - [ ] Managing concurrence in deliveries. 
 - [ ] Implementing a Queue Manager to improve requests management. 
-##Considerations
+## Considerations
 * Each use case will aggregate value to system and will have unit test cases. 
 * Releases will have one or more use cases.
-##Technical aspects
+## Technical aspects
 * Java 14 version.
 * JUnit 4.13 for unit testing.
 * Maven as Build Tool. 
