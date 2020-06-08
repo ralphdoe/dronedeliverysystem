@@ -8,13 +8,12 @@ position of the addresses traveled by each one.
 This system involves different actors and entities. 
 1. **Owner:** is the main user, designs and organises the routes of the deliveries. 
 2. **Drone:** the worker, is the one that execute deliveries.
-3. **Order:** it refers to a client request. 
-4. **Route:** a defined path to arrive to an address. 
-5. **Delivery:** it joins a group of orders and orchestrate the process.
+3. **Order:** it refers to a client request.  
+4. **Delivery:** it joins a group of orders and orchestrate the process.
 
 ## Use cases
-- [ ] Drone executing a move.
-- [ ] Drone delivering an order route.
+- [x] Drone executing a move.
+- [x] Drone delivering an order route.
 - [ ] Drone doing a complete delivery. 
 - [ ] System generating all reports.
 - [ ] Testing and Improving performance. 

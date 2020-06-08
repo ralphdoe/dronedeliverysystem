@@ -53,4 +53,10 @@ public class Drone {
     public void setId(long id) {
         this.id = id;
     }
+
+    public String getCurrentPosition() {
+        return "(" + x +
+                "," + y +
+                ") dirección " + cardinality.getName() + "\n";
+    }
 }
