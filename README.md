@@ -14,7 +14,7 @@ This system involves different actors and entities.
 ## Use cases
 - [x] Drone executing a move.
 - [x] Drone delivering an order route.
-- [ ] Drone doing a complete delivery. 
+- [x] Drone doing a complete delivery. 
 - [ ] System generating all reports.
 - [ ] Testing and Improving performance. 
 - [ ] Implementing Control of deliveries out of boundaries. 
