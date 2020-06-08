@@ -13,7 +13,8 @@ This system involves different actors and entities.
 5. **Delivery:** it joins a group of orders and orchestrate the process.
 
 ## Use cases
-- [ ] Drone doing an order route.
+- [ ] Drone executing a move.
+- [ ] Drone delivering an order route.
 - [ ] Drone doing a complete delivery. 
 - [ ] System generating all reports.
 - [ ] Testing and Improving performance. 
