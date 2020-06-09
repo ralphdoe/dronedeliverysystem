@@ -19,12 +19,14 @@ This system involves different actors and entities.
 - [x] Testing and Improving performance - General Improvement - Main Class.
 - [x] Implementing Control of deliveries out of boundaries. (Message on exported file) 
 ## Future Work
+- [ ] Refactor the Design to separate File Management Logic from Delivery and Drone Service. 
 - [ ] Customized Exceptions Handling. 
 - [ ] Managing concurrence in deliveries. 
 - [ ] Implementing a Queue Manager to improve requests management. 
 ## Considerations
 * Each use case will aggregate value to system and will have unit test cases. 
-* Releases will have one or more use cases
+* Releases will have one or more use cases.
+* Drones are able to deliver more than 3 orders if it is necessary. 
 * Base Test Case has an error in Document:   
 `AAAAIAA`    
 `DDDAIAD`  
@@ -37,7 +39,6 @@ The correct result is (the Main Class has this case):
 `(-2,4) dirección Occidente`    
 `(-1,3) dirección Sur`  
 `(0,0) dirección Occidente`    
-
 ## Technical considerations
 * Java 14 version.
 * JUnit 4.13 for unit testing.
