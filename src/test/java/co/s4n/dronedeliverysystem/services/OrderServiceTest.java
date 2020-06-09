@@ -17,14 +17,14 @@ public class OrderServiceTest {
     public void init() {
         defaultDrone = new Drone();
         order = new Order();
-        orderService = OrderService.getOrderService();
+        orderService = OrderService.getInstance();
     }
 
     @Test
     public void deliverSampleFromDroneAtDefaultPositionBaseCaseTest() {
         order.setId(1);
         order.setRoute("AAAAIAA");
-        String position = orderService.deliverOrderAndGetPosition(order, defaultDrone);
+        String position = orderService.deliverOrder(order, defaultDrone).getCurrentPosition();
         assertEquals("(-2,4) dirección Occidente\n", position);
     }
 
@@ -33,7 +33,7 @@ public class OrderServiceTest {
         order.setId(1);
         order.setRoute("DDDAIAD");
         final Drone drone = new Drone(1, -2, 4, Cardinality.NORTH);
-        final String position = orderService.deliverOrderAndGetPosition(order, drone);
+        final String position = orderService.deliverOrder(order, drone).getCurrentPosition();
         assertEquals("(-3,3) dirección Occidente\n", position);
     }
 
@@ -42,7 +42,7 @@ public class OrderServiceTest {
         order.setId(1);
         order.setRoute("AAIADAD");
         final Drone drone = new Drone(1, -3, 3, Cardinality.SOUTH);
-        final String position = orderService.deliverOrderAndGetPosition(order, drone);
+        final String position = orderService.deliverOrder(order, drone).getCurrentPosition();
         assertEquals("(-2,0) dirección Occidente\n", position);
     }
 }

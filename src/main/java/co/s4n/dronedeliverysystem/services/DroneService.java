@@ -9,14 +9,17 @@ import java.util.List;
 import java.util.Optional;
 
 public class DroneService {
-    private final static List<Drone> drones = new ArrayList<>();
     private static DroneService droneService;
-    private final static int NUMBER_OF_DRONES = 20;
+
+    private static final String INPUT_IN_TEXT = "/input/in";
+    private static final List<Drone> drones = new ArrayList<>();
+    private static final int NUMBER_OF_DRONES = 20;
+    private static final int CURRENT_SCOPE_RANGE = 10;
 
     private DroneService() {
     }
 
-    public static DroneService getDroneService() {
+    public static DroneService getInstance() {
         if (droneService == null ) {
             droneService = new DroneService();
         }
@@ -31,47 +34,60 @@ public class DroneService {
         }
     }
 
-    public static List<Drone> getDrones() {
-        return drones;
-    }
-
     public void moveDrone(final Drone drone, final String move) {
         if (move.equals(Move.FORWARD.id())) {
-            if (drone.getCardinality().equals(Cardinality.NORTH)) {
-                drone.setY(drone.getY() + 1);
-            } else if (drone.getCardinality().equals(Cardinality.EAST)) {
-                drone.setX(drone.getX() + 1);
-            } else if (drone.getCardinality().equals(Cardinality.SOUTH)) {
-                drone.setY(drone.getY() - 1);
-            } else if (drone.getCardinality().equals(Cardinality.WEST)) {
-                drone.setX(drone.getX() - 1);
-            }
+            moveForward(drone);
         } else if (move.equals(Move.RIGHT.id())) {
-            if (drone.getCardinality().equals(Cardinality.NORTH)) {
-                drone.setCardinality(Cardinality.EAST);
-            } else if (drone.getCardinality().equals(Cardinality.EAST)) {
-                drone.setCardinality(Cardinality.SOUTH);
-            } else if (drone.getCardinality().equals(Cardinality.SOUTH)) {
-                drone.setCardinality(Cardinality.WEST);
-            } else if (drone.getCardinality().equals(Cardinality.WEST)) {
-                drone.setCardinality(Cardinality.NORTH);
-            }
+            moveRight(drone);
         } else if (move.equals(Move.LEFT.id())) {
-            if (drone.getCardinality().equals(Cardinality.NORTH)) {
-                drone.setCardinality(Cardinality.WEST);
-            } else if (drone.getCardinality().equals(Cardinality.WEST)) {
-                drone.setCardinality(Cardinality.SOUTH);
-            } else if (drone.getCardinality().equals(Cardinality.SOUTH)) {
-                drone.setCardinality(Cardinality.EAST);
-            } else if (drone.getCardinality().equals(Cardinality.EAST)) {
-                drone.setCardinality(Cardinality.NORTH);
-            }
+            moveLeft(drone);
         }
     }
 
+    private void moveForward(final Drone drone) {
+        if (drone.getCardinality().equals(Cardinality.NORTH)) {
+            drone.setY(drone.getY() + 1);
+        } else if (drone.getCardinality().equals(Cardinality.EAST)) {
+            drone.setX(drone.getX() + 1);
+        } else if (drone.getCardinality().equals(Cardinality.SOUTH)) {
+            drone.setY(drone.getY() - 1);
+        } else if (drone.getCardinality().equals(Cardinality.WEST)) {
+            drone.setX(drone.getX() - 1);
+        }
+    }
+
+    private void moveRight(final Drone drone) {
+        if (drone.getCardinality().equals(Cardinality.NORTH)) {
+            drone.setCardinality(Cardinality.EAST);
+        } else if (drone.getCardinality().equals(Cardinality.EAST)) {
+            drone.setCardinality(Cardinality.SOUTH);
+        } else if (drone.getCardinality().equals(Cardinality.SOUTH)) {
+            drone.setCardinality(Cardinality.WEST);
+        } else if (drone.getCardinality().equals(Cardinality.WEST)) {
+            drone.setCardinality(Cardinality.NORTH);
+        }
+    }
+
+    private void moveLeft(final Drone drone) {
+        if (drone.getCardinality().equals(Cardinality.NORTH)) {
+            drone.setCardinality(Cardinality.WEST);
+        } else if (drone.getCardinality().equals(Cardinality.WEST)) {
+            drone.setCardinality(Cardinality.SOUTH);
+        } else if (drone.getCardinality().equals(Cardinality.SOUTH)) {
+            drone.setCardinality(Cardinality.EAST);
+        } else if (drone.getCardinality().equals(Cardinality.EAST)) {
+            drone.setCardinality(Cardinality.NORTH);
+        }
+    }
+
+    public boolean isDroneInBoundaries(final Drone drone) {
+        return (drone.getX() <= CURRENT_SCOPE_RANGE && drone.getX() >= CURRENT_SCOPE_RANGE * -1)
+                && (drone.getY() <= CURRENT_SCOPE_RANGE && drone.getY() >= CURRENT_SCOPE_RANGE * -1) ;
+
+    }
+
     public Optional<Drone> getDroneFromFilePath(final String filePath) {
-        final String index = "/input/in";
-        int beginIndex = filePath.indexOf(index) + index.length();
+        int beginIndex = filePath.indexOf(INPUT_IN_TEXT) + INPUT_IN_TEXT.length();
         int endIndex = beginIndex + 2;
         int id = Integer.parseInt(filePath.substring(beginIndex, endIndex));
         return getDroneById(id);

@@ -17,7 +17,7 @@ public class DroneServiceTest {
     @Before
     public void init() {
         defaultDrone = new Drone();
-        droneService = DroneService.getDroneService();
+        droneService = DroneService.getInstance();
     }
 
     @Test
