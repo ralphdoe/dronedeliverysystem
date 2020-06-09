@@ -17,7 +17,7 @@ public class OrderServiceTest {
     public void init() {
         defaultDrone = new Drone();
         order = new Order();
-        orderService = new OrderService();
+        orderService = OrderService.getOrderService();
     }
 
     @Test

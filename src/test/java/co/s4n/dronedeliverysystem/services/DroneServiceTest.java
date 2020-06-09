@@ -5,7 +5,10 @@ import co.s4n.dronedeliverysystem.util.Cardinality;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Optional;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class DroneServiceTest {
     private Drone defaultDrone;
@@ -14,7 +17,7 @@ public class DroneServiceTest {
     @Before
     public void init() {
         defaultDrone = new Drone();
-        droneService = new DroneService();
+        droneService = DroneService.getDroneService();
     }
 
     @Test
@@ -78,5 +81,20 @@ public class DroneServiceTest {
         assertEquals(0, drone.getX());
         assertEquals(0, drone.getY());
         assertEquals(Cardinality.NORTH, drone.getCardinality());
+    }
+
+    @Test
+    public void getDroneIdFromPathTest() {
+        final Optional<Drone> drone = droneService.getDroneFromFilePath("src/test/resources/baseCase/input/in04.txt");
+        assertTrue(drone.isPresent());
+        assertEquals(4, drone.get().getId());
+
+    }
+
+    @Test
+    public void searchForEmptyDrone() {
+        final Optional<Drone> drone = droneService.getDroneFromFilePath("src/test/resources/baseCase/input/in24.txt");
+        assertTrue(drone.isEmpty());
+
     }
 }
