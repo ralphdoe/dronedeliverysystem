@@ -15,9 +15,11 @@ This system involves different actors and entities.
 - [x] Drone executing a move.
 - [x] Drone delivering an order route.
 - [x] Drone doing a complete delivery. 
-- [ ] System generating all reports.
-- [ ] Testing and Improving performance. 
-- [ ] Implementing Control of deliveries out of boundaries. 
+- [x] System generating all reports.
+- [ ] Testing and Improving performance - General Improvement. 
+- [ ] Implementing Control of deliveries out of boundaries.
+## Future Work
+- [ ] Exceptions Handling. 
 - [ ] Managing concurrence in deliveries. 
 - [ ] Implementing a Queue Manager to improve requests management. 
 ## Considerations
@@ -27,4 +29,6 @@ This system involves different actors and entities.
 * Java 14 version.
 * JUnit 4.13 for unit testing.
 * Maven as Build Tool. 
+* Log4J Used for Logging.
+* Apache Commons for FileUtils.
  
