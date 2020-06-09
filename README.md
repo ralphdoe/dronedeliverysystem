@@ -25,6 +25,19 @@ This system involves different actors and entities.
 ## Considerations
 * Each use case will aggregate value to system and will have unit test cases. 
 * Releases will have one or more use cases
+* Base Test Case has an error in Document:   
+`AAAAIAA`    
+`DDDAIAD`  
+`AAIADAD`  
+It is expecting:   
+`(-2, 4) dirección Norte`    
+`(-3, 3) dirección Sur`  
+`(-4, 2) dirección Oriente`  
+The correct result is (the Main Class has this case):  
+`(-2,4) dirección Occidente`    
+`(-1,3) dirección Sur`  
+`(0,0) dirección Occidente`    
+
 ## Technical considerations
 * Java 14 version.
 * JUnit 4.13 for unit testing.
