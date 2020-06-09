@@ -11,18 +11,18 @@ public class OrderService {
     private OrderService() {
     }
 
-    public static OrderService getOrderService() {
+    public synchronized static OrderService getInstance() {
         if (orderService == null) {
             orderService = new OrderService();
         }
         return orderService;
     }
 
-    public String deliverOrderAndGetPosition(final Order order, final Drone drone) {
-        droneService = DroneService.getDroneService();
-        for (char aChar : order.getRoute().toCharArray()) {
-            droneService.moveDrone(drone, String.valueOf(aChar));
+    public Drone deliverOrder(final Order order, final Drone drone) {
+        droneService = DroneService.getInstance();
+        for (char routeMove : order.getRoute().toCharArray()) {
+            droneService.moveDrone(drone, String.valueOf(routeMove));
         }
-        return drone.getCurrentPosition();
+        return drone;
     }
 }

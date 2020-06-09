@@ -16,19 +16,22 @@ This system involves different actors and entities.
 - [x] Drone delivering an order route.
 - [x] Drone doing a complete delivery. 
 - [x] System generating all reports.
-- [ ] Testing and Improving performance - General Improvement. 
-- [ ] Implementing Control of deliveries out of boundaries.
+- [x] Testing and Improving performance - General Improvement - Main Class.
+- [x] Implementing Control of deliveries out of boundaries. (Message on exported file) 
 ## Future Work
-- [ ] Exceptions Handling. 
+- [ ] Customized Exceptions Handling. 
 - [ ] Managing concurrence in deliveries. 
 - [ ] Implementing a Queue Manager to improve requests management. 
 ## Considerations
 * Each use case will aggregate value to system and will have unit test cases. 
-* Releases will have one or more use cases.
-## Technical aspects
+* Releases will have one or more use cases
+## Technical considerations
 * Java 14 version.
 * JUnit 4.13 for unit testing.
 * Maven as Build Tool. 
 * Log4J Used for Logging.
 * Apache Commons for FileUtils.
+* There is a Main Class if you want to run it and generate a sample output file. 
+* Run `mvn test` to see test cases working.
+* 100% of Test Coverage.
  
